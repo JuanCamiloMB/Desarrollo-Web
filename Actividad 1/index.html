@@ -9,18 +9,24 @@
         padding: 0;
         margin: 0;
         border-radius: border-box;
+        --blue: rgb(34, 135, 252);
+        --light-blue: rgb(84, 152, 230);
+        --yellow: rgb(241, 241, 44);
+        --background-color: #333333;
+        --green: rgb(29, 175, 29);
       }
 
       body {
-        background: #333333;
+        background: var(--background-color);
+        min-height: 100vh;
       }
 
       header {
         margin: 0 20px;
-
-        & > h1 {
-          color: yellow;
-        }
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
 
         & > nav > ul {
           display: flex;
@@ -46,51 +52,60 @@
             border-radius: 5px;
             padding: 7px 15px;
             border: none;
-            background: rgb(18, 129, 255);
+            background: var(--blue);
             color: white;
+            cursor: pointer;
           }
         }
+      }
+
+      .article-movies {
+        margin: 0 20px;
       }
 
       .section-movies {
-        margin: 0 20px;
+        margin-top: 30px;
         min-height: 400px;
         height: 100%;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
         place-items: center;
-        gap: 2%;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       }
 
       .article-best-movies {
-        width: 100%;
-        background: white;
+        background: rgb(226, 224, 224);
 
         & > .section-best-movies {
           display: grid;
-          grid-template-columns: repeat(3, minmax(300px, 1fr));
-          
-          margin-left: 100px;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
           & .best-movie-information {
             display: flex;
-            gap: 60px;
-            padding: 20px;
+            justify-content: space-between;
+            background: #e4e3e3;
           }
         }
       }
-      .best-movie-container>a{
-        font-weight: bolder;
+
+      .best-movie-container {
+        padding: 10px;
+        margin: 10px;
+        background: white;
+
+        & > a {
+          font-weight: bolder;
+        }
       }
 
-      .best-movie-information > a{
+      .best-movie-information > a {
         font-weight: bold;
       }
-      .best-movie-information > span{
+      .best-movie-information > span {
         margin-left: 40px;
         font-weight: bold;
       }
-      .best-movie-information > p{
+      .best-movie-information > p {
         font-weight: bold;
       }
 
@@ -101,40 +116,43 @@
       }
 
       .movie-poster {
-        display: flex;
-        flex-direction: column;
-        width: 50%;
         position: relative;
+        min-height: 450px;
+        width: 200px;
         & > p {
           color: white;
           margin: 10px 0;
+          text-wrap: wrap;
+          width: 100%;
+        }
+
+        & > img {
+          width: 200px;
+          aspect-ratio: 2 / 3;
         }
       }
 
       .blue-color {
-        color: rgb(83, 83, 236);
+        color: var(--light-blue);
       }
 
       .green-color {
-        color: rgb(29, 175, 29);
+        color: var(--green);
       }
 
       .yellow_subtitle {
-        color: yellow;
+        color: var(--yellow);
       }
 
       footer {
         text-align: center;
-      }
-
-      img {
-        width: 100%;
+        color: white;
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>IMXb</h1>
+      <h1 style="color: var(--yellow)">IMXb</h1>
       <nav>
         <ul>
           <li><a href="">Peliculas</a></li>
@@ -155,7 +173,7 @@
       </div>
     </header>
     <main>
-      <article>
+      <article style="margin: 0 20px">
         <h2 class="yellow_subtitle">Destacado del mes</h2>
         <section class="section-movies">
           <div class="movie-poster">
@@ -202,6 +220,7 @@
         <section class="section-best-movies">
           <div class="best-movie-container">
             <a href="">The Beekeeper</a>
+            <hr />
             <div class="best-movie-information">
               <span> 1 </span>
               <p>Total: $143,681,846</p>
@@ -209,6 +228,7 @@
           </div>
           <div class="best-movie-container">
             <a href="">Mean Girls</a>
+            <hr />
             <div class="best-movie-information">
               <span> 2 </span>
               <p>Total: $101,887,277</p>
@@ -216,6 +236,7 @@
           </div>
           <div class="best-movie-container">
             <a href="">Bob Marley: One Love</a>
+            <hr />
             <div class="best-movie-information">
               <span> 3 </span>
               <p>Total: $80,505,027</p>
@@ -223,13 +244,16 @@
           </div>
           <div class="best-movie-container">
             <a href="">Argylle</a>
+            <hr />
             <div class="best-movie-information">
               <span> 4 </span>
+
               <p>Total: $77,555,055</p>
             </div>
           </div>
           <div class="best-movie-container">
             <a href="">Madame Web</a>
+            <hr />
             <div class="best-movie-information">
               <span> 5 </span>
               <p>Total: $51,849,244</p>
@@ -237,6 +261,7 @@
           </div>
           <div class="best-movie-container">
             <a href="">Night Swim</a>
+            <hr />
             <div class="best-movie-information">
               <span> 6 </span>
               <p>Total: $49,352,770</p>
@@ -244,6 +269,7 @@
           </div>
           <div class="best-movie-container">
             <a href="">Mobile Suit Gundam SEED Freedom</a>
+            <hr />
             <div class="best-movie-information">
               <span> 7 </span>
               <p>Total: $17,275,292</p>
@@ -251,6 +277,7 @@
           </div>
           <div class="best-movie-container">
             <a href="">Golden Kamuy</a>
+            <hr />
             <div class="best-movie-information">
               <span> 8 </span>
               <p>Total: $13,414,307</p>
@@ -258,6 +285,7 @@
           </div>
           <div class="best-movie-container">
             <a href="">Alienoid: The Return to the Future</a>
+            <hr />
             <div class="best-movie-information">
               <span> 9 </span>
               <p>Total: $10,693,858</p>
